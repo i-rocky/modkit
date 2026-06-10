@@ -1,0 +1,18 @@
+[
+	{
+		"id": "base:coin",
+		"type": "item",
+		"color": "#f2c94c",
+		"size": [20, 20],
+		"sound": "assets/sounds/coin.wav",
+		"value": 1
+	},
+	{
+		"id": "base:star",
+		"type": "item",
+		"color": "#fff7ae",
+		"size": [36, 36],
+		"sound": "assets/sounds/win.wav",
+		"win": true
+	}
+]

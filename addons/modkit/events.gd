@@ -5,3 +5,9 @@ extends Node
 signal pack_loaded(pack_id: String)
 signal record_changed(record_id: String)
 signal world_rebuild_requested
+
+signal room_changed(room_id: String)
+signal player_hit(source_id: String)
+signal item_collected(item_id: String)
+signal game_won
+signal play_sound(path: String)

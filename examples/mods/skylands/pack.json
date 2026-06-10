@@ -1,0 +1,7 @@
+{
+	"id": "skylands",
+	"name": "Skylands",
+	"version": "1.0.0",
+	"requires": ["base"],
+	"description": "A new-lands mod: adds a whole new room above the summit, hooked in with two door records. No code, no base-game edits."
+}

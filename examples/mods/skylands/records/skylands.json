@@ -1,0 +1,42 @@
+[
+	{
+		"id": "skylands:room_sky",
+		"type": "room",
+		"background_color": "#2a3f5f",
+		"spawn": [120, 560],
+		"platforms": [
+			[0, 656, 1280, 64],
+			[350, 500, 200, 24],
+			[700, 380, 200, 24],
+			[450, 250, 160, 24],
+			[900, 180, 160, 24]
+		],
+		"items": [
+			{"ref": "base:coin", "at": [440, 464]},
+			{"ref": "base:coin", "at": [790, 344]},
+			{"ref": "base:coin", "at": [520, 214]},
+			{"ref": "base:coin", "at": [970, 144]}
+		],
+		"entities": [
+			{"ref": "base:flyer", "at": [650, 420]}
+		]
+	},
+	{
+		"id": "skylands:door_up",
+		"type": "door",
+		"room": "base:room_summit",
+		"at": [1180, 576],
+		"color": "#7ec8ff",
+		"target_room": "skylands:room_sky",
+		"target_spawn": [120, 560]
+	},
+	{
+		"id": "skylands:door_down",
+		"type": "door",
+		"room": "skylands:room_sky",
+		"at": [16, 576],
+		"color": "#7ec8ff",
+		"target_room": "base:room_summit",
+		"target_spawn": [1100, 560]
+	}
+]

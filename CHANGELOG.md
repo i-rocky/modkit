@@ -10,6 +10,39 @@ Until 1.0.0, minor versions may break formats; the pack format freezes at
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-06-10
+
+### Added
+
+- **Room graph**: the world is now rooms connected by doors. `door` records
+  declare which room they sit in (`"room"`) and where they lead
+  (`"target_room"`, `"target_spawn"`) — so a mod can hook a new area into
+  any existing room without patching it. "New lands" mods are just records.
+- **Game vertical slice**: three rooms (start, cave, summit), two enemy
+  types (`base:walker` patrols and turns at edges/walls; `base:flyer`
+  drifts in a figure-eight), coins, and a win star. HUD tracks coins and
+  deaths; touching an enemy or falling respawns you; collecting the star
+  wins (R restarts).
+- **Sound**: procedurally generated WAVs (jump, coin, hurt, win) in the base
+  pack; records reference sounds by pack-relative path; mods can ship their
+  own. Played via the `Events.play_sound` bus.
+- **Skylands example mod** (`examples/mods/skylands/`): a complete
+  new-lands mod — a new room with four coins and a flyer, hooked into the
+  summit with two door records. Data-only, no base-game edits.
+- New events for mods: `room_changed`, `player_hit`, `item_collected`,
+  `game_won`, `play_sound`.
+- `MODKIT_START_ROOM` environment variable to boot directly into any room
+  (used for testing).
+
+### Changed
+
+- **Entity/item placement format**: rooms now place things as
+  `{"ref": "<record-id>", "at": [x, y]}` objects (was a bare id list).
+  The player is no longer listed in rooms; the shell spawns it at the room's
+  `spawn` or the door's `target_spawn`.
+- Pack-relative resource paths now resolve generally at ingest (any string
+  field starting with `scripts/` or `assets/`), not just `script`.
+
 ## [0.2.0] - 2026-06-10
 
 ### Added

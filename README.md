@@ -19,10 +19,14 @@ godot --path .        # play (F1 opens the in-game editor)
 godot --path . -e     # open the Godot editor
 ```
 
-Move with arrow keys, jump with Space. Press **F1** to open the record editor,
-change something (try the player's `color` or `jump_velocity`), hit
-**Apply**, press F1 again, and you're playing your edit. **Export as mod**
-writes your changes as a pack that loads automatically on every launch.
+Move with arrow keys, jump with Space. Walk through doors to travel between
+rooms, grab coins, avoid the walkers and flyers, and collect the star at the
+summit to win (R restarts).
+
+Press **F1** to open the record editor, change something (try the player's
+`color` or `jump_velocity`), hit **Apply**, press F1 again, and you're
+playing your edit. **Export as mod** writes your changes as a pack that
+loads automatically on every launch.
 
 ## How it works
 
@@ -102,10 +106,27 @@ add `"patch": true` and the record is shallow-merged instead of replaced:
 ```
 
 That's a complete mod (with a `pack.json` next to it): the player turns green
-and jumps half again as high. `script` paths are relative to the pack that
-declares them, so mods can ship new behaviors, not just new numbers.
-`pack.json` can declare `"requires": ["base"]` — unsatisfied dependencies
-are reported on launch, never fatal.
+and jumps half again as high. Resource paths (under `scripts/` or `assets/`)
+are relative to the pack that declares them, so mods can ship new behaviors
+and sounds, not just new numbers. `pack.json` can declare
+`"requires": ["base"]` — unsatisfied dependencies are reported on launch,
+never fatal.
+
+### New maps ("new lands" mods)
+
+The world is a graph: `room` records connected by `door` records. A door
+declares which room it sits in, so a mod adds a whole new area — and hooks
+it into the existing world — with nothing but records:
+
+```json
+{"id": "mymod:secret_garden", "type": "room", "platforms": [...], "items": [...]}
+{"id": "mymod:garden_door", "type": "door", "room": "base:room_start",
+ "at": [600, 576], "target_room": "mymod:secret_garden", "target_spawn": [100, 560]}
+```
+
+See `examples/mods/skylands/` for a complete new-lands mod: a sky room with
+coins and a flyer, reachable through a new door at the summit. No code, no
+base-game edits.
 
 ### Schemas
 

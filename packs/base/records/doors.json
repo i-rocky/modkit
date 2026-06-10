@@ -1,0 +1,34 @@
+[
+	{
+		"id": "base:door/start_east",
+		"type": "door",
+		"room": "base:room_start",
+		"at": [1216, 576],
+		"target_room": "base:room_cave",
+		"target_spawn": [90, 560]
+	},
+	{
+		"id": "base:door/cave_west",
+		"type": "door",
+		"room": "base:room_cave",
+		"at": [16, 576],
+		"target_room": "base:room_start",
+		"target_spawn": [1140, 560]
+	},
+	{
+		"id": "base:door/cave_east",
+		"type": "door",
+		"room": "base:room_cave",
+		"at": [1216, 576],
+		"target_room": "base:room_summit",
+		"target_spawn": [90, 560]
+	},
+	{
+		"id": "base:door/summit_west",
+		"type": "door",
+		"room": "base:room_summit",
+		"at": [16, 576],
+		"target_room": "base:room_cave",
+		"target_spawn": [1140, 560]
+	}
+]

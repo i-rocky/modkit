@@ -6,5 +6,7 @@
 	"size": [48, 48],
 	"move_speed": 320,
 	"jump_velocity": -680,
-	"gravity": 1600
+	"gravity": 1600,
+	"jump_sound": "assets/sounds/jump.wav",
+	"hurt_sound": "assets/sounds/hurt.wav"
 }

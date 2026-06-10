@@ -1,0 +1,63 @@
+[
+	{
+		"id": "base:room_start",
+		"type": "room",
+		"background_color": "#1d2230",
+		"spawn": [160, 480],
+		"platforms": [
+			[0, 656, 1280, 64],
+			[420, 520, 220, 24],
+			[760, 400, 220, 24],
+			[1040, 290, 200, 24]
+		],
+		"items": [
+			{"ref": "base:coin", "at": [530, 484]},
+			{"ref": "base:coin", "at": [870, 364]},
+			{"ref": "base:coin", "at": [1140, 254]}
+		],
+		"entities": [
+			{"ref": "base:walker", "at": [700, 600]}
+		]
+	},
+	{
+		"id": "base:room_cave",
+		"type": "room",
+		"background_color": "#141019",
+		"spawn": [100, 560],
+		"platforms": [
+			[0, 656, 1280, 64],
+			[300, 540, 160, 24],
+			[580, 440, 160, 24],
+			[860, 340, 160, 24],
+			[300, 240, 300, 24]
+		],
+		"items": [
+			{"ref": "base:coin", "at": [650, 404]},
+			{"ref": "base:coin", "at": [930, 304]},
+			{"ref": "base:coin", "at": [430, 204]}
+		],
+		"entities": [
+			{"ref": "base:walker", "at": [620, 600]},
+			{"ref": "base:flyer", "at": [780, 480]}
+		]
+	},
+	{
+		"id": "base:room_summit",
+		"type": "room",
+		"background_color": "#23304a",
+		"spawn": [100, 560],
+		"platforms": [
+			[0, 656, 1280, 64],
+			[400, 520, 180, 24],
+			[700, 400, 180, 24],
+			[980, 280, 200, 24]
+		],
+		"items": [
+			{"ref": "base:coin", "at": [480, 484]},
+			{"ref": "base:star", "at": [1070, 226]}
+		],
+		"entities": [
+			{"ref": "base:flyer", "at": [620, 440]}
+		]
+	}
+]

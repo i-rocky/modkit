@@ -9,9 +9,9 @@ This file tracks status; details live there.
   event-naming conventions written down. Frozen 2026-06-10.
 - [x] **M2 — ModKit v0.2.** Record schemas + validation, `loadorder.txt`,
   `requires` between packs, zip mods, script-trust prompt, provenance API.
-- [ ] **M3 — Game vertical slice.** Several rooms connected by doors,
+- [x] **M3 — Game vertical slice.** Several rooms connected by doors,
   player, 2–3 entity types, items, sound, win/lose — 100% records — plus a
-  "new lands" test mod that adds a room to prove map modding.
+  "new lands" test mod that adds a room to prove map modding (Skylands).
 - [ ] **M4 — Editor E1.** Schema-driven property inspector (sliders, color
   pickers) replacing raw JSON as the default, with diff view against the
   load order.

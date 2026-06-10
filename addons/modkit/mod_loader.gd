@@ -184,9 +184,13 @@ func _ingest(data: Variant, manifest: Dictionary) -> void:
 			_ingest(item, manifest)
 	elif typeof(data) == TYPE_DICTIONARY and data.has("id"):
 		var record: Dictionary = data
-		# Script paths in records are relative to their pack.
-		if record.has("script") and not String(record["script"]).contains("://"):
-			record["script"] = String(manifest["path"]).path_join(record["script"])
+		# Resource paths in records are relative to the pack that declares
+		# them, by convention under scripts/ or assets/. Resolve at ingest so
+		# patches merge cleanly across packs.
+		for key in record:
+			var value: Variant = record[key]
+			if typeof(value) == TYPE_STRING and (value.begins_with("scripts/") or value.begins_with("assets/")):
+				record[key] = String(manifest["path"]).path_join(value)
 		Registry.put(record["id"], record, manifest["id"])
 
 

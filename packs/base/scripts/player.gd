@@ -14,6 +14,7 @@ func setup(rec: Dictionary) -> void:
 	move_speed = rec.get("move_speed", move_speed)
 	jump_velocity = rec.get("jump_velocity", jump_velocity)
 	gravity = rec.get("gravity", gravity)
+	add_to_group("player")
 
 	var raw_size: Array = rec.get("size", [48, 48])
 	var size := Vector2(raw_size[0], raw_size[1])
@@ -35,5 +36,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 	elif Input.is_action_just_pressed("ui_accept"):
 		velocity.y = jump_velocity
+		if record.has("jump_sound"):
+			Events.play_sound.emit(record["jump_sound"])
 	velocity.x = Input.get_axis("ui_left", "ui_right") * move_speed
 	move_and_slide()

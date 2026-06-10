@@ -9,7 +9,11 @@
 			"size": {"type": "vec2", "default": [48, 48]},
 			"move_speed": {"type": "number", "default": 320, "min": 0},
 			"jump_velocity": {"type": "number", "default": -680},
-			"gravity": {"type": "number", "default": 1600, "min": 0}
+			"gravity": {"type": "number", "default": 1600, "min": 0},
+			"speed": {"type": "number", "default": 90, "min": 0},
+			"fly_range": {"type": "vec2", "default": [120, 60]},
+			"jump_sound": {"type": "string"},
+			"hurt_sound": {"type": "string"}
 		}
 	},
 	{
@@ -20,7 +24,34 @@
 			"background_color": {"type": "color", "default": "#1d2230"},
 			"spawn": {"type": "vec2", "default": [100, 100]},
 			"platforms": {"type": "array", "default": []},
-			"entities": {"type": "array", "default": []}
+			"entities": {"type": "array", "default": []},
+			"items": {"type": "array", "default": []},
+			"kill_y": {"type": "number", "default": 1100}
+		}
+	},
+	{
+		"id": "base:schema/door",
+		"type": "schema",
+		"describes": "door",
+		"fields": {
+			"room": {"type": "id"},
+			"at": {"type": "vec2", "default": [0, 0]},
+			"size": {"type": "vec2", "default": [48, 80]},
+			"color": {"type": "color", "default": "#8a6d3b"},
+			"target_room": {"type": "id"},
+			"target_spawn": {"type": "vec2", "default": [100, 100]}
+		}
+	},
+	{
+		"id": "base:schema/item",
+		"type": "schema",
+		"describes": "item",
+		"fields": {
+			"color": {"type": "color", "default": "#f2c94c"},
+			"size": {"type": "vec2", "default": [20, 20]},
+			"sound": {"type": "string"},
+			"value": {"type": "number", "default": 0},
+			"win": {"type": "bool", "default": false}
 		}
 	}
 ]
