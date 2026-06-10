@@ -3,7 +3,7 @@ config_version=5
 
 [application]
 
-config/name="gamengine"
+config/name="modkit-demo"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.6")
 

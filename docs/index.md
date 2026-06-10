@@ -54,6 +54,7 @@ Your game ships moddable — no engine fork, no custom builds. MIT licensed.
 Early and moving. The spike is done and proven; the design is public; the
 pack format freezes at v1.0. Follow along:
 
+- [Download the demo game](https://github.com/i-rocky/modkit/releases/latest) (Windows · Linux)
 - [Source on GitHub](https://github.com/i-rocky/modkit)
 - [Design document](https://github.com/i-rocky/modkit/blob/main/DESIGN.md)
 - [Roadmap](https://github.com/i-rocky/modkit/blob/main/ROADMAP.md)

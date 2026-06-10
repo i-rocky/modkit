@@ -62,7 +62,9 @@ with load-order overrides — no engine fork, no custom builds.
 
 Mods are folders — or zips of folders — dropped into the user mods directory
 (the game prints the exact path on launch; on Linux it's
-`~/.local/share/godot/app_userdata/gamengine/mods/`). Load order lives in
+`~/.local/share/godot/app_userdata/modkit-demo/mods/`). See
+[MODDING.md](MODDING.md) for the modder-facing one-pager that ships with
+release builds. Load order lives in
 `mods/loadorder.txt`: top loads first, later packs win, newly installed mods
 are appended on launch. Edit the file freely.
 

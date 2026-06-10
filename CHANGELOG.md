@@ -10,6 +10,25 @@ Until 1.0.0, minor versions may break formats; the pack format freezes at
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-06-10
+
+### Added
+
+- **First playable release builds**: Windows and Linux exports (single
+  binary, embedded pack), published on GitHub Releases with `MODDING.md`
+  included in each zip.
+- `MODDING.md` — the modder-facing one-pager: the 60-second F1 mod, mods
+  folder locations per OS, pack anatomy, patches, new-lands recipe, and the
+  script trust model.
+- Export presets for Windows Desktop and Linux (`export_presets.cfg`),
+  including pack JSON/assets and excluding tests.
+
+### Changed
+
+- Project renamed `gamengine` → `modkit-demo`; the user data folder (and
+  mods folder) moves accordingly, e.g.
+  `%APPDATA%\Godot\app_userdata\modkit-demo\mods\` on Windows.
+
 ## [0.4.0] - 2026-06-10
 
 ### Added
