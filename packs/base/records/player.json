@@ -1,0 +1,10 @@
+{
+	"id": "base:player",
+	"type": "entity",
+	"script": "scripts/player.gd",
+	"color": "#e8554d",
+	"size": [48, 48],
+	"move_speed": 320,
+	"jump_velocity": -680,
+	"gravity": 1600
+}

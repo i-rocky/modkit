@@ -1,0 +1,6 @@
+{
+	"id": "base:player",
+	"patch": true,
+	"color": "#41d97a",
+	"jump_velocity": -950
+}

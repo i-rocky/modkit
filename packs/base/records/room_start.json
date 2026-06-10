@@ -1,0 +1,13 @@
+{
+	"id": "base:room_start",
+	"type": "room",
+	"background_color": "#1d2230",
+	"spawn": [160, 480],
+	"platforms": [
+		[0, 656, 1280, 64],
+		[420, 520, 220, 24],
+		[760, 400, 220, 24],
+		[1040, 290, 200, 24]
+	],
+	"entities": ["base:player"]
+}

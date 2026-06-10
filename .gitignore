@@ -1,0 +1,8 @@
+# Godot
+.godot/
+export/
+*.translation
+
+# OS / editors
+.DS_Store
+*.swp
