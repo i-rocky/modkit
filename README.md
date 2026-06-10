@@ -23,10 +23,13 @@ Move with arrow keys, jump with Space. Walk through doors to travel between
 rooms, grab coins, avoid the walkers and flyers, and collect the star at the
 summit to win (R restarts).
 
-Press **F1** to open the record editor, change something (try the player's
-`color` or `jump_velocity`), hit **Apply**, press F1 again, and you're
-playing your edit. **Export as mod** writes your changes as a pack that
-loads automatically on every launch.
+Press **F1** to open the record editor: every record gets real controls
+generated from its schema — sliders, color pickers, checkboxes — plus a Raw
+JSON toggle for everything else. Change something (try the player's `color`
+or `jump_velocity`), hit **Apply**, press F1 again, and you're playing your
+edit; a diff line shows everything you've changed this session. **Export as
+mod** writes your changes as a minimal patch-pack that loads automatically
+on every launch.
 
 ## How it works
 

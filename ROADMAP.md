@@ -12,9 +12,9 @@ This file tracks status; details live there.
 - [x] **M3 — Game vertical slice.** Several rooms connected by doors,
   player, 2–3 entity types, items, sound, win/lose — 100% records — plus a
   "new lands" test mod that adds a room to prove map modding (Skylands).
-- [ ] **M4 — Editor E1.** Schema-driven property inspector (sliders, color
+- [x] **M4 — Editor E1.** Schema-driven property inspector (sliders, color
   pickers) replacing raw JSON as the default, with diff view against the
-  load order.
+  load order and minimal-patch mod export.
 - [ ] **M5 — First outside modder.** Someone who isn't us makes a mod using
   only the README and the in-game editor. Their confusion is the bug list.
 - [ ] **M6 — ModKit v1.0.** Pack format freeze, Godot Asset Library

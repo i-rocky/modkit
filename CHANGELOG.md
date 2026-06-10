@@ -10,6 +10,26 @@ Until 1.0.0, minor versions may break formats; the pack format freezes at
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-06-10
+
+### Added
+
+- **Schema-driven inspector** in the F1 editor: records edit with real
+  controls generated from their schema — sliders for ranged numbers,
+  spinboxes, color pickers, checkboxes, paired fields for vec2 — with a
+  Raw JSON toggle for everything else (and for creating new records).
+- **Diff view**: the editor shows what you changed this session for the
+  selected record (`field: old → new`), against the value the load order
+  produced at boot.
+- **Minimal-patch export**: "Export as mod" now writes `"patch": true`
+  records containing only the fields you changed (whole records only for
+  brand-new ids or removed fields), and stamps `"requires": ["base"]` in
+  the generated manifest. Exported mods are as small as hand-written ones.
+- **Headless UI smoke test** (`tests/ui_smoke.tscn`): exercises inspector
+  build for every record, both apply paths, diff, and export — runs in CI
+  with no display, exits non-zero on failure.
+- Record list now shows each record's type alongside its id.
+
 ## [0.3.0] - 2026-06-10
 
 ### Added
