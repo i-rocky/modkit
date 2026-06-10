@@ -1,0 +1,26 @@
+[
+	{
+		"id": "base:schema/entity",
+		"type": "schema",
+		"describes": "entity",
+		"fields": {
+			"script": {"type": "string"},
+			"color": {"type": "color", "default": "#ffffff"},
+			"size": {"type": "vec2", "default": [48, 48]},
+			"move_speed": {"type": "number", "default": 320, "min": 0},
+			"jump_velocity": {"type": "number", "default": -680},
+			"gravity": {"type": "number", "default": 1600, "min": 0}
+		}
+	},
+	{
+		"id": "base:schema/room",
+		"type": "schema",
+		"describes": "room",
+		"fields": {
+			"background_color": {"type": "color", "default": "#1d2230"},
+			"spawn": {"type": "vec2", "default": [100, 100]},
+			"platforms": {"type": "array", "default": []},
+			"entities": {"type": "array", "default": []}
+		}
+	}
+]

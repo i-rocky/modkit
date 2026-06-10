@@ -1,9 +1,7 @@
 # Design — ModKit & the first game
 
-Status: DRAFT — §11 decisions resolved 2026-06-10. Freeze (M1) pending one
-full owner read-through of §4–§6, since those formats become the contract.
-The M0 spike (in this repo) validated the core mechanics; this document
-designs the real thing before further code.
+Status: v0 FROZEN 2026-06-10 (M1). Format changes from here are versioned
+and land in CHANGELOG.md; the pack format freezes fully at v1.0 (M6).
 
 ## 1. Vision
 

@@ -53,10 +53,15 @@ with load-order overrides — no engine fork, no custom builds.
 
 ## Modding
 
-Mods are folders dropped into the user mods directory (the game prints the
-exact path on launch — on Linux it's
-`~/.local/share/godot/app_userdata/gamengine/mods/`). They load in
-alphabetical order after the base pack. Later packs win.
+Mods are folders — or zips of folders — dropped into the user mods directory
+(the game prints the exact path on launch; on Linux it's
+`~/.local/share/godot/app_userdata/gamengine/mods/`). Load order lives in
+`mods/loadorder.txt`: top loads first, later packs win, newly installed mods
+are appended on launch. Edit the file freely.
+
+Mods that contain scripts trigger a one-time consent prompt per version —
+code can do anything your computer can. Data-only mods (JSON + assets) are
+safe by construction and load without prompting.
 
 ### Pack layout
 
@@ -99,6 +104,17 @@ add `"patch": true` and the record is shallow-merged instead of replaced:
 That's a complete mod (with a `pack.json` next to it): the player turns green
 and jumps half again as high. `script` paths are relative to the pack that
 declares them, so mods can ship new behaviors, not just new numbers.
+`pack.json` can declare `"requires": ["base"]` — unsatisfied dependencies
+are reported on launch, never fatal.
+
+### Schemas
+
+Record types are described by schema records (`"type": "schema"`) declaring
+fields, types (`string`, `number`, `bool`, `color`, `vec2`, `array`, `dict`,
+`id`), defaults, and ranges. Defaults are filled in on read — records only
+state what they change — and every record is validated against its schema at
+load and on live edits. Schemas are records, so mods can introduce entirely
+new record types.
 
 ### Events
 

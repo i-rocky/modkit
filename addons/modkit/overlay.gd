@@ -101,7 +101,11 @@ func _on_apply() -> void:
 	changed_ids[parsed["id"]] = true
 	Events.world_rebuild_requested.emit()
 	_refresh_list()
-	status.text = "Applied %s. F1 to play with it." % parsed["id"]
+	var issues := Registry.validate(parsed["id"])
+	if issues.is_empty():
+		status.text = "Applied %s. F1 to play with it." % parsed["id"]
+	else:
+		status.text = "Applied %s, with warnings: %s" % [parsed["id"], "; ".join(issues)]
 
 
 func _on_export_mod() -> void:

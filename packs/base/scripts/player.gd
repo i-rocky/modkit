@@ -25,7 +25,8 @@ func setup(rec: Dictionary) -> void:
 	var visual := ColorRect.new()
 	visual.size = size
 	visual.position = -size / 2.0
-	visual.color = Color(rec.get("color", "#e8554d"))
+	var color: Variant = rec.get("color", "#e8554d")
+	visual.color = Color(color) if typeof(color) == TYPE_STRING and Color.html_is_valid(color) else Color("#e8554d")
 	add_child(visual)
 
 

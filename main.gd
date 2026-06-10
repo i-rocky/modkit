@@ -22,6 +22,14 @@ func _ready() -> void:
 	add_child(overlay)
 	Events.world_rebuild_requested.connect(rebuild_world)
 	rebuild_world()
+	_resolve_pending_mods.call_deferred()
+
+
+## Script-bearing mods wait for player consent, which needs UI — so the
+## loader holds them at boot and we resolve here, once a scene exists.
+func _resolve_pending_mods() -> void:
+	if await ModLoader.resolve_pending(self):
+		rebuild_world()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -38,7 +46,7 @@ func rebuild_world() -> void:
 	if room.is_empty():
 		push_error("No room record found: " + ROOM_ID)
 		return
-	RenderingServer.set_default_clear_color(Color(room.get("background_color", "#1d2230")))
+	RenderingServer.set_default_clear_color(_safe_color(room.get("background_color"), "#1d2230"))
 
 	for platform in room.get("platforms", []):
 		world.add_child(_make_platform(platform))
@@ -49,6 +57,14 @@ func rebuild_world() -> void:
 		if node:
 			node.position = Vector2(spawn[0], spawn[1])
 			world.add_child(node)
+
+
+## Mods can carry malformed values; bad data degrades to the fallback
+## instead of crashing the world build.
+func _safe_color(value: Variant, fallback: String) -> Color:
+	if typeof(value) == TYPE_STRING and Color.html_is_valid(value):
+		return Color(value)
+	return Color(fallback)
 
 
 ## platform record entry: [x, y, width, height] in pixels

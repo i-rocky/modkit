@@ -10,6 +10,36 @@ Until 1.0.0, minor versions may break formats; the pack format freezes at
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-06-10
+
+### Added
+
+- **Record schemas**: schemas are records themselves (`"type": "schema"`,
+  `"describes": "<type>"`) declaring fields, types, defaults, and ranges.
+  Defaults are applied on read, so records and mods only state what they
+  change. Base pack ships `entity` and `room` schemas.
+- **Validation**: every record is checked against its schema after load and
+  on live edits in the F1 editor — wrong types, out-of-range numbers, and
+  unknown fields are reported as warnings. Broken mods never block a load.
+- **`user://mods/loadorder.txt`**: user-editable load order, top loads
+  first; newly installed mods are appended alphabetically on launch.
+- **Zip mods**: a `.zip` of a pack dropped into the mods folder works like
+  a folder (single wrapping directory inside the zip is tolerated).
+- **`requires`** in `pack.json`: unsatisfied dependencies are reported as
+  warnings (never fatal), checked against load order.
+- **Script-trust prompt**: packs containing `.gd` scripts are held at boot
+  until the player consents ("code can do anything your computer can"),
+  remembered per pack version in `user://mod_trust.json`. Data-only packs
+  load without prompting. Headless runs leave unconsented script packs
+  unloaded.
+- **Provenance API**: `Registry.conflicts()`, `Registry.ids_by_type()`,
+  `Registry.schema_for()`.
+
+### Fixed
+
+- World builder no longer crashes on malformed record values (e.g. a
+  non-string color) — bad data degrades to defaults with a warning.
+
 ## [0.1.0] - 2026-06-10
 
 ### Added
