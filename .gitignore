@@ -6,3 +6,7 @@ export/
 # OS / editors
 .DS_Store
 *.swp
+
+# Tooling caches — never commit
+.wrangler/
+node_modules/
